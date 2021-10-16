@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kdyzm.swagger.register.server.mapper.IGroupInfoMapper">
+
+    <resultMap type="GroupInfo" id="GroupInfoResult">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="location" column="location"/>
+        <result property="version" column="version"/>
+        <result property="url" column="url"/>
+        <result property="appName" column="app_name"/>
+        <result property="gateway" column="gateway"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="BASE_COLUMN_LIST">
+        id
+        ,
+                name,
+                location,
+                version,
+                url,
+                app_name,
+                gateway,
+    </sql>
+
+    <sql id="BASE_TABLE_NAME">
+        group_info
+    </sql>
+</mapper>

@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: swagger-spring-boot-starter-demo
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos.kdyzm.cn
+        group: DEFAULT_GROUP
+        register-enabled: true
+  profiles:
+    active: swagger
+
+swagger:
+  config:
+    #每个人只关心自己的包名，方便和前端文档对接
+    base-package: com.kdyzm.swagger.test
+    description: swagger测试项目
+    group:
+      #swagger注册唯一标识，每个人都要不一样
+      appName: ${spring.application.name}
+      name: swagger测试项目
+    api:
+      title: swagger测试项目
+      contactName: kdyzm@foxmail.com
+    #swagger注册中心地址，指定了server-url就使用该地址注册swagger文档信息；未指定则默认使用服务发现模式
+#    server-url: http://swagger.kdyzm.cn

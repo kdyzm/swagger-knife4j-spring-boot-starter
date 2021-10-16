@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kdyzm.swagger.register.server.mapper.ISwaggerJsonMapper">
+
+    <resultMap type="SwaggerJson" id="SwaggerJsonResult">
+        <result property="id" column="id"/>
+        <result property="groupName" column="group_name"/>
+        <result property="content" column="content"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="BASE_COLUMN_LIST">
+        id
+        ,
+                group_name,
+                content,
+    </sql>
+
+    <sql id="BASE_TABLE_NAME">
+        swagger_json
+    </sql>
+</mapper>

@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    include: localhost
+
+mybatis-plus:
+  mapper-locations: classpath:mappers/**/*Mapper.xml
+  type-aliases-package: com.kdyzm.swagger.register.server.entity
+  global-config:
+    banner: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    lazyLoadingEnabled: true
+    multipleResultSetsEnabled: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
