@@ -28,7 +28,7 @@ mysql数据库服务需要自己搭建
 - nacos我搭建了一个在线版本，可以直接使用（这里不提供管理端的账号密码），nacos在线地址：nacos.kdyzm.cn
 - mysql需要自己创建数据库，运行脚本 https://gitee.com/kdyzm/swagger-register-server/blob/master/sql/init.sql 创建相关的数据库和表结构以及初始化部分数据。
 
-准备好外部依赖之后，启动项目即可，启动成功之后，访问项目的/doc.html，即可看到knife4j的文档页面。
+准备好外部依赖之后，执行sql文件夹中的sql文件，最后启动项目即可，启动成功之后，访问项目的/doc.html，即可看到knife4j的文档页面。
 
 这里我提供了线上部署好的版本：http://swagger.kdyzm.cn ，如果不想本地启动测试，可以直接使用线上版本的。
 
@@ -72,8 +72,10 @@ swagger:
     api:
       title: swagger测试项目
       contactName: kdyzm@foxmail.com
-    #swagger注册中心地址，若无此配置项，会自动使用服务发现功能查找swagger-register-server的ip地址和端口号
+    #swagger注册中心地址，指定了server-url就优先使用该地址注册swagger文档信息；未指定则顺延使用服务发现模式
     server-url: http://swagger.kdyzm.cn
+    #swgger注册中心serviceId，即servername，用于服务发现模式
+    service-id: swagger-register-server
 ```
 
 #### 第三步：激活swagger profile

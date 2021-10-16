@@ -24,5 +24,8 @@ swagger:
     api:
       title: swagger测试项目
       contactName: kdyzm@foxmail.com
-    #swagger注册中心地址，指定了server-url就使用该地址注册swagger文档信息；未指定则默认使用服务发现模式
-#    server-url: http://swagger.kdyzm.cn
+    #swagger注册中心地址，指定了server-url就优先使用该地址注册swagger文档信息；未指定则顺延使用服务发现模式
+    server-url: http://swagger.kdyzm.cn
+    #swgger注册中心serviceId，即servername，用于服务发现模式
+    service-id: swagger-register-server
+   

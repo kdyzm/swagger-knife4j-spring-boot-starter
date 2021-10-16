@@ -27,13 +27,13 @@ public class SwaggerRegistryService {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     private final JsonSerializer jsonSerializer;
-    
+
     private RestTemplate restSwaggerTemplate;
 
     private final SwaggerConfigProperties swaggerConfigProperties;
-    
+
     public SwaggerRegistryService(JsonSerializer jsonSerializer,
-                                  @Qualifier("swagger-rest-template") RestTemplate restSwaggerTemplate, 
+                                  @Qualifier("swagger-rest-template") RestTemplate restSwaggerTemplate,
                                   SwaggerConfigProperties swaggerConfigProperties) {
         this.jsonSerializer = jsonSerializer;
         this.restSwaggerTemplate = restSwaggerTemplate;
@@ -55,10 +55,18 @@ public class SwaggerRegistryService {
         }
         if (swagger != null) {
             try {
-                String url = "http://swagger-register-server/swagger/regist";
+                String url = "";
+                //优先使用配置的serverUrl
                 if (!StringUtils.isEmpty(swaggerConfigProperties.getServerUrl())) {
                     restSwaggerTemplate = new RestTemplate();
                     url = swaggerConfigProperties.getServerUrl() + "/swagger/regist";
+                }
+                //退化使用serviceId
+                else if (!StringUtils.isEmpty(swaggerConfigProperties.getServiceId())) {
+                    url = "http://" + swaggerConfigProperties.getServiceId() + "/swagger/regist";
+                } else {
+                    log.error("swagger注册中心地址未配置，缺少serverUrl或者serviceId配置，跳过swagger注册");
+                    return new AsyncResult<>(1);
                 }
                 String s = this.jsonSerializer.toJson(swagger).value();
                 log.info("start register swagger");

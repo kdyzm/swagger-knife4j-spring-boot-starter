@@ -18,7 +18,6 @@
     <modules>
         <module>swagger-register-server</module>
         <module>swagger-spring-boot-starter</module>
-        <module>swagger-spring-boot-starter-test</module>
     </modules>
 
 

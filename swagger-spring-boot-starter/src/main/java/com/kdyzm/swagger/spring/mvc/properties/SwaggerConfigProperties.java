@@ -34,6 +34,11 @@ public class SwaggerConfigProperties {
      */
     private String serverUrl;
 
+    /**
+     * 服务器serviceId，用于服务发现
+     */
+    private String serviceId;
+
     private SwaggerGroupInfo group;
 
     private SwaggerApiInfo api;
