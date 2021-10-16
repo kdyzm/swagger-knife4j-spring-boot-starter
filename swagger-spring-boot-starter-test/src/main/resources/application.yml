@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: nacos.kdyzm.cn
+        server-addr: nacos.kdyzm.cn:80
         group: DEFAULT_GROUP
         register-enabled: true
   profiles:

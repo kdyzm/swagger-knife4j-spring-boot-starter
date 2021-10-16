@@ -21,32 +21,4 @@ public class WrapperResult<T> {
     @ApiModelProperty(required = false, value = "响应码,200:成功，500：失败",example = "200")
     private Integer code;
 
-    /**
-     * 成功响应
-     *
-     * @param data
-     * @param <T>
-     * @return
-     */
-    public static <T> WrapperResult<T> successResult(T data) {
-        WrapperResult<T> result = new WrapperResult<>();
-        result.setData(data);
-        result.setMsg("OK");
-        result.setCode(200);
-        return result;
-    }
-
-    /**
-     * 失败响应
-     *
-     * @param <T>
-     * @return
-     */
-    public static <T> WrapperResult<T> faildResult() {
-        WrapperResult<T> result = new WrapperResult<>();
-        result.setMsg("FAIL");
-        result.setCode(500);
-        return result;
-    }
-
 }
